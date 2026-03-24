@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Waka is a social app built for New Zealanders — connecting people, communities, and conversations that matter. Sign up for early access." />
+  <title>Waka — Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cagliostro&family=Glass+Antiqua&family=Work+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #EC6464;
+      --primary-hover: #d44f4f;
+      --primary-light: #f08888;
+      --accent-blue: #4E87AB;
+      --accent-brown: #886644;
+      --dark: #365C6A;
+      --dark-2: #243f4a;
+      --cream: #FFF3C2;
+      --taupe: #B1A496;
+      --white: #FFFFFF;
+      --off-white: #FFF3C2;
+      --border: #ddd0b3;
+      --text-dark: #1e3540;
+      --text-muted: #7a6550;
+      --text-subtle: #B1A496;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      background: var(--off-white);
+      color: var(--text-dark);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 1200px;
+      background: rgba(13, 32, 40, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 50;
+    }
+
+    .nav-logo img {
+      height: 56px;
+      width: auto;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .nav-badge {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary-light);
+      border: 1px solid rgba(236, 100, 100, 0.4);
+      background: rgba(236, 100, 100, 0.08);
+      padding: 4px 14px;
+      border-radius: 100px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 24px 96px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(236, 100, 100, 0.18) 0%, transparent 65%);
+      top: -150px;
+      right: -200px;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(78, 135, 171, 0.15) 0%, transparent 65%);
+      bottom: -150px;
+      left: -100px;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(236, 100, 100, 0.12);
+      border: 1px solid rgba(236, 100, 100, 0.3);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary-light);
+      margin-bottom: 36px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--primary);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-family: 'Cagliostro', serif;
+      font-size: clamp(52px, 8vw, 100px);
+      font-weight: 400;
+      color: var(--cream);
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 .highlight {
+      color: var(--primary);
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: rgba(255, 243, 194, 0.65);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Forms ── */
+    .form-wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 24px;
+    }
+
+    .email-form {
+      display: flex;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 243, 194, 0.12);
+      border-radius: 14px;
+      padding: 6px;
+    }
+
+    .email-label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+    }
+
+    .email-input {
+      flex: 1;
+      min-width: 0;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--cream);
+      font-family: 'Work Sans', sans-serif;
+      font-size: 15px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+
+    .email-input::placeholder {
+      color: rgba(177, 164, 150, 0.5);
+    }
+
+    .email-input:focus {
+      outline: 2px solid rgba(236, 100, 100, 0.6);
+      outline-offset: 0;
+    }
+
+    .btn-submit {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      padding: 12px 22px;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background-color 200ms ease, transform 150ms ease;
+    }
+
+    .btn-submit:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-submit:focus-visible {
+      outline: 2px solid var(--cream);
+      outline-offset: 2px;
+    }
+
+    .btn-submit:active {
+      transform: scale(0.97);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .success-msg {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      color: #4ADE80;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 18px;
+      background: rgba(74, 222, 128, 0.08);
+      border: 1px solid rgba(74, 222, 128, 0.2);
+      border-radius: 12px;
+    }
+
+    .success-msg.visible {
+      display: flex;
+    }
+
+    .error-msg {
+      color: var(--primary-light);
+      font-size: 13px;
+      margin-top: 8px;
+      display: none;
+    }
+
+    .error-msg.visible {
+      display: block;
+    }
+
+    .waitlist-hint {
+      position: relative;
+      z-index: 1;
+      color: rgba(177, 164, 150, 0.6);
+      font-size: 14px;
+    }
+
+    .waitlist-hint strong {
+      color: var(--taupe);
+    }
+
+    /* ── Wave ── */
+    .wave-divider {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      background: var(--dark);
+    }
+
+    .wave-divider svg {
+      display: block;
+    }
+
+    /* ── Features ── */
+    .features {
+      background: var(--cream);
+      padding: 100px 24px;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-brown);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Cagliostro', serif;
+      text-align: center;
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 17px;
+      max-width: 520px;
+      margin: 0 auto 64px;
+      line-height: 1.7;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 32px;
+      cursor: default;
+      transition: box-shadow 200ms ease, transform 200ms ease;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 16px 48px rgba(54, 92, 106, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .feature-icon--coral {
+      background: rgba(236, 100, 100, 0.08);
+    }
+
+    .feature-icon--coral svg {
+      stroke: var(--primary);
+    }
+
+    .feature-icon--blue {
+      background: rgba(78, 135, 171, 0.08);
+    }
+
+    .feature-icon--blue svg {
+      stroke: var(--accent-blue);
+    }
+
+    .feature-icon--brown {
+      background: rgba(136, 102, 68, 0.08);
+    }
+
+    .feature-icon--brown svg {
+      stroke: var(--accent-brown);
+    }
+
+    .feature-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .feature-card h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── Bottom CTA ── */
+    .cta-section {
+      background: var(--dark-2);
+      padding: 100px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(236, 100, 100, 0.1) 0%, transparent 65%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      font-family: 'Cagliostro', serif;
+      font-size: clamp(30px, 4vw, 56px);
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .cta-section>p {
+      color: var(--taupe);
+      font-size: 18px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section .form-wrap {
+      margin: 0 auto 12px;
+    }
+
+    .no-spam {
+      color: rgba(177, 164, 150, 0.5);
+      font-size: 13px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      padding: 36px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .footer-logo img {
+      height: 52px;
+      width: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+
+    footer p {
+      color: rgba(177, 164, 150, 0.5);
+      font-size: 14px;
+    }
+
+    /* ── Animations ── */
+    @media (prefers-reduced-motion: no-preference) {
+      .fade-up {
+        opacity: 0;
+        transform: translateY(28px);
+        animation: fadeUp 0.55s ease forwards;
+      }
+
+      .fade-up:nth-child(2) {
+        animation-delay: 0.12s;
+      }
+
+      .fade-up:nth-child(3) {
+        animation-delay: 0.24s;
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .email-form {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .btn-submit {
+        width: 100%;
+        padding: 14px;
+        text-align: center;
+      }
+
+      nav {
+        padding: 10px 16px;
+      }
+
+      .nav-logo {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Nav -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-logo"><img src="waka-logo.svg" alt="Waka" /></div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <h1 id="hero-heading">
+      Your community,<br><span class="highlight">your Waka.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Waka is a social app built for New Zealanders — connecting people, communities, and conversations that matter.
+    </p>
+
+    <div class="form-wrap" id="hero-wrap">
+      <form class="email-form" id="hero-form" novalidate aria-label="Early access signup">
+        <label class="email-label" for="hero-email">Your email address</label>
+        <input type="email" id="hero-email" name="email" class="email-input" placeholder="you@example.com"
+          autocomplete="email" required aria-required="true" />
+        <button type="submit" class="btn-submit" id="hero-btn">
+          Get Early Access
+        </button>
+      </form>
+      <p class="error-msg" id="hero-error" role="alert">Please enter a valid email address.</p>
+      <div class="success-msg" id="hero-success" role="status" aria-live="polite">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+        You're on the list! We'll be in touch soon.
+      </div>
+    </div>
+
+    <p class="waitlist-hint">Join <strong>hundreds</strong> of Kiwis already signed up — no spam, ever.</p>
+  </section>
+
+  <!-- Wave divider -->
+  <div class="wave-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 56" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="56">
+      <path d="M0,28 C480,56 960,0 1440,28 L1440,56 L0,56 Z" fill="#FFF3C2" />
+    </svg>
+  </div>
+
+  <!-- Features -->
+  <section class="features" aria-labelledby="features-heading">
+    <p class="section-label">Why Waka</p>
+    <h2 class="section-title" id="features-heading">A better way to connect</h2>
+    <p class="section-sub">Built from the ground up for the way New Zealanders live, talk, and come together.</p>
+
+    <div class="features-grid">
+      <article class="feature-card fade-up">
+        <div class="feature-icon feature-icon--coral" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        </div>
+        <h3>Real communities</h3>
+        <p>Find your people — whether it's your neighbourhood, sports team, or local interest group. Genuine
+          connections, not algorithms.</p>
+      </article>
+
+      <article class="feature-card fade-up">
+        <div class="feature-icon feature-icon--blue" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </div>
+        <h3>Private by design</h3>
+        <p>Your data stays yours. We're built with NZ Privacy Act values at our core — no selling your data, no shady
+          targeting.</p>
+      </article>
+
+      <article class="feature-card fade-up">
+        <div class="feature-icon feature-icon--brown" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+        </div>
+        <h3>Locally focused</h3>
+        <p>Discover what's happening near you. Events, groups, and conversations rooted in your corner of Aotearoa.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="cta-section" aria-labelledby="cta-heading">
+    <h2 id="cta-heading">Be first on board</h2>
+    <p>Sign up for early access and help shape Waka from the start.</p>
+
+    <div class="form-wrap">
+      <form class="email-form" id="cta-form" novalidate aria-label="Waitlist signup">
+        <label class="email-label" for="cta-email">Your email address</label>
+        <input type="email" id="cta-email" name="email" class="email-input" placeholder="you@example.com"
+          autocomplete="email" required aria-required="true" />
+        <button type="submit" class="btn-submit" id="cta-btn">
+          Join the Waitlist
+        </button>
+      </form>
+      <p class="error-msg" id="cta-error" role="alert">Please enter a valid email address.</p>
+      <div class="success-msg" id="cta-success" role="status" aria-live="polite">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+        You're on the list! We'll be in touch soon.
+      </div>
+    </div>
+
+    <p class="no-spam">No spam. Unsubscribe anytime.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo"><img src="waka-logo.svg" alt="Waka" /></div>
+    <p>&copy; 2025 Waka. Made with aroha in Aotearoa New Zealand.</p>
+  </footer>
+
+  <script>
+    (function () {
+      var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      function setupForm(formId, btnId, errorId, successId) {
+        var form = document.getElementById(formId);
+        var btn = document.getElementById(btnId);
+        var errorEl = document.getElementById(errorId);
+        var success = document.getElementById(successId);
+        if (!form) return;
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          var input = form.querySelector('input[type="email"]');
+          var email = input.value.trim();
+
+          // Validate
+          if (!EMAIL_RE.test(email)) {
+            errorEl.classList.add('visible');
+            input.focus();
+            return;
+          }
+
+          errorEl.classList.remove('visible');
+          btn.disabled = true;
+          btn.textContent = 'Joining\u2026';
+
+          // Simulate async — swap out for real API call later
+          setTimeout(function () {
+            form.style.display = 'none';
+            errorEl.style.display = 'none';
+            success.classList.add('visible');
+          }, 800);
+        });
+
+        // Clear error on input
+        form.querySelector('input[type="email"]').addEventListener('input', function () {
+          errorEl.classList.remove('visible');
+        });
+      }
+
+      setupForm('hero-form', 'hero-btn', 'hero-error', 'hero-success');
+      setupForm('cta-form', 'cta-btn', 'cta-error', 'cta-success');
+    })();
+  </script>
+
+</body>
+
+</html>
