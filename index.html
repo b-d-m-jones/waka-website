@@ -614,12 +614,23 @@
           btn.disabled = true;
           btn.textContent = 'Joining\u2026';
 
-          // Simulate async — swap out for real API call later
-          setTimeout(function () {
-            form.style.display = 'none';
-            errorEl.style.display = 'none';
-            success.classList.add('visible');
-          }, 800);
+          fetch('/api/waitlist', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email }),
+          })
+            .then(function (res) {
+              if (!res.ok) throw new Error('Request failed');
+              form.style.display = 'none';
+              errorEl.style.display = 'none';
+              success.classList.add('visible');
+            })
+            .catch(function () {
+              btn.disabled = false;
+              btn.textContent = 'Join the Waitlist';
+              errorEl.textContent = 'Something went wrong. Please try again.';
+              errorEl.classList.add('visible');
+            });
         });
 
         // Clear error on input

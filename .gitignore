@@ -1,3 +1,9 @@
+# Dependencies
+node_modules/
+
+# Netlify
+.netlify/
+
 # Claude
 .claude/
 
