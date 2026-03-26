@@ -614,7 +614,7 @@
           btn.disabled = true;
           btn.textContent = 'Joining\u2026';
 
-          fetch('/api/waitlist', {
+          fetch('/waitlist', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: email }),

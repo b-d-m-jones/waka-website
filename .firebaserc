@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "waka-dev"
+  },
+  "targets": {
+    "waka-dev": {
+      "hosting": {
+        "website": [
+          "waka-financial"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
