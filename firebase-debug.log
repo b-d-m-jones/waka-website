@@ -1,0 +1,40 @@
+[debug] [2026-03-27T01:15:23.432Z] ----------------------------------------------------------------------
+[debug] [2026-03-27T01:15:23.434Z] Command:       D:\Program Files\nodejs\node.exe C:\Users\Benny\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js functions:secrets:set RESEND_FROM_EMAIL
+[debug] [2026-03-27T01:15:23.435Z] CLI Version:   15.11.0
+[debug] [2026-03-27T01:15:23.435Z] Platform:      win32
+[debug] [2026-03-27T01:15:23.435Z] Node Version:  v22.19.0
+[debug] [2026-03-27T01:15:23.435Z] Time:          Fri Mar 27 2026 14:15:23 GMT+1300 (New Zealand Daylight Time)
+[debug] [2026-03-27T01:15:23.435Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-03-27T01:15:23.702Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-03-27T01:15:23.703Z] > authorizing via signed-in user (b.d.m.jones@gmail.com)
+[debug] [2026-03-27T01:15:23.703Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-03-27T01:15:23.703Z] > authorizing via signed-in user (b.d.m.jones@gmail.com)
+[debug] [2026-03-27T01:15:23.704Z] [iam] checking project waka-dev for permissions ["firebase.projects.get","secretmanager.secrets.create","secretmanager.secrets.get","secretmanager.secrets.update","secretmanager.versions.add"]
+[debug] [2026-03-27T01:15:23.705Z] Checked if tokens are valid: true, expires at: 1774576604286
+[debug] [2026-03-27T01:15:23.705Z] Checked if tokens are valid: true, expires at: 1774576604286
+[debug] [2026-03-27T01:15:23.706Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/waka-dev:testIamPermissions [none]
+[debug] [2026-03-27T01:15:23.706Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/waka-dev:testIamPermissions  x-goog-user-project=waka-dev
+[debug] [2026-03-27T01:15:23.706Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/waka-dev:testIamPermissions {"permissions":["firebase.projects.get","secretmanager.secrets.create","secretmanager.secrets.get","secretmanager.secrets.update","secretmanager.versions.add"]}
+[debug] [2026-03-27T01:15:25.126Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/waka-dev:testIamPermissions 200
+[debug] [2026-03-27T01:15:25.126Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/waka-dev:testIamPermissions {"permissions":["firebase.projects.get","secretmanager.secrets.create","secretmanager.secrets.get","secretmanager.secrets.update","secretmanager.versions.add"]}
+[debug] [2026-03-27T01:15:25.127Z] Checked if tokens are valid: true, expires at: 1774576604286
+[debug] [2026-03-27T01:15:25.127Z] Checked if tokens are valid: true, expires at: 1774576604286
+[debug] [2026-03-27T01:15:25.127Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/waka-dev [none]
+[debug] [2026-03-27T01:15:25.432Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/waka-dev 200
+[debug] [2026-03-27T01:15:25.432Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/waka-dev {"projectNumber":"80131965513","projectId":"waka-dev","lifecycleState":"ACTIVE","name":"waka-dev","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-10-10T06:39:20.729464Z"}
+[debug] [2026-03-27T01:15:25.433Z] Checked if tokens are valid: true, expires at: 1774576604286
+[debug] [2026-03-27T01:15:25.433Z] Checked if tokens are valid: true, expires at: 1774576604286
+[debug] [2026-03-27T01:15:25.433Z] >>> [apiv2][query] GET https://secretmanager.googleapis.com/v1/projects/waka-dev/secrets/RESEND_FROM_EMAIL [none]
+[debug] [2026-03-27T01:15:26.002Z] <<< [apiv2][status] GET https://secretmanager.googleapis.com/v1/projects/waka-dev/secrets/RESEND_FROM_EMAIL 200
+[debug] [2026-03-27T01:15:26.002Z] <<< [apiv2][body] GET https://secretmanager.googleapis.com/v1/projects/waka-dev/secrets/RESEND_FROM_EMAIL {"name":"projects/80131965513/secrets/RESEND_FROM_EMAIL","replication":{"automatic":{}},"createTime":"2026-03-27T00:56:49.067239Z","labels":{"firebase-managed":"functions"},"etag":"\"164df6f9f3cf92\""}
+[debug] [2026-03-27T01:15:26.003Z] Checked if tokens are valid: true, expires at: 1774576604286
+[debug] [2026-03-27T01:15:26.003Z] Checked if tokens are valid: true, expires at: 1774576604286
+[debug] [2026-03-27T01:15:26.003Z] >>> [apiv2][query] POST https://secretmanager.googleapis.com/v1/projects/waka-dev/secrets/RESEND_FROM_EMAIL:addVersion [none]
+[debug] [2026-03-27T01:15:26.003Z] >>> [apiv2][body] POST https://secretmanager.googleapis.com/v1/projects/waka-dev/secrets/RESEND_FROM_EMAIL:addVersion {"payload":{"data":"bm9yZXBseUBtYWlsLndha2FmaW5hbmNpYWwuY28ubnoK"}}
+[debug] [2026-03-27T01:15:29.252Z] <<< [apiv2][status] POST https://secretmanager.googleapis.com/v1/projects/waka-dev/secrets/RESEND_FROM_EMAIL:addVersion 200
+[debug] [2026-03-27T01:15:29.252Z] <<< [apiv2][body] POST https://secretmanager.googleapis.com/v1/projects/waka-dev/secrets/RESEND_FROM_EMAIL:addVersion {"name":"projects/80131965513/secrets/RESEND_FROM_EMAIL/versions/2","createTime":"2026-03-27T01:15:30.737417Z","state":"ENABLED","replicationStatus":{"automatic":{}},"etag":"\"164df73cb0b109\""}
+[info] +  Created a new secret version projects/80131965513/secrets/RESEND_FROM_EMAIL/versions/2 
+[debug] [2026-03-27T01:15:29.253Z] Checked if tokens are valid: true, expires at: 1774576604286
+[debug] [2026-03-27T01:15:29.253Z] Checked if tokens are valid: true, expires at: 1774576604286
+[debug] [2026-03-27T01:15:29.254Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/waka-dev/locations/-/functions [none]
