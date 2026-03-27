@@ -568,6 +568,7 @@
         </button>
       </form>
       <p class="error-msg" id="cta-error" role="alert">Please enter a valid email address.</p>
+      <p class="error-msg" id="cta-token-error" role="alert"></p>
       <div class="success-msg" id="cta-success" role="status" aria-live="polite">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -640,6 +641,18 @@
       }
 
       setupForm('cta-form', 'cta-btn', 'cta-error', 'cta-success');
+
+      var tokenError = document.getElementById('cta-token-error');
+      var errorMessages = {
+        invalid_token: 'That verification link is invalid.',
+        expired_token: 'That verification link has expired. Please sign up again.',
+      };
+      var errorParam = new URLSearchParams(window.location.search).get('error');
+      if (errorParam && errorMessages[errorParam]) {
+        tokenError.textContent = errorMessages[errorParam];
+        tokenError.classList.add('visible');
+        tokenError.scrollIntoView({behavior: 'smooth', block: 'center'});
+      }
     })();
   </script>
 
