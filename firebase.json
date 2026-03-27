@@ -12,6 +12,11 @@
         "source": "/waitlist",
         "function": "api",
         "region": "australia-southeast1"
+      },
+      {
+        "source": "/verify",
+        "function": "api",
+        "region": "australia-southeast1"
       }
     ]
   }
