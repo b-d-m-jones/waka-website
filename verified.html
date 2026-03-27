@@ -15,32 +15,68 @@
 
     :root {
       --primary: #EC6464;
+      --primary-light: #f08888;
       --dark: #365C6A;
-      --text: #1a2e35;
-      --muted: #6b8a94;
-      --bg: #fafaf8;
+      --cream: #FFF3C2;
+      --taupe: #B1A496;
     }
+
+    html, body { height: 100%; }
 
     body {
       font-family: 'Work Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
+      background: var(--dark);
+      color: var(--cream);
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 2rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(236, 100, 100, 0.18) 0%, transparent 65%);
+      top: -150px;
+      right: -200px;
+      pointer-events: none;
+    }
+
+    body::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(78, 135, 171, 0.15) 0%, transparent 65%);
+      bottom: -150px;
+      left: -100px;
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .logo { margin-bottom: 2.5rem; }
-    .logo img { height: 48px; }
+    .logo img { height: 56px; width: auto; border-radius: 6px; }
 
     .icon {
       width: 64px;
       height: 64px;
-      background: #e8f5e9;
+      background: rgba(74, 222, 128, 0.1);
+      border: 1px solid rgba(74, 222, 128, 0.25);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -50,21 +86,23 @@
 
     h1 {
       font-family: 'Cagliostro', serif;
-      font-size: 2rem;
-      color: var(--dark);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 400;
+      color: var(--cream);
+      letter-spacing: -0.5px;
       margin-bottom: 0.75rem;
     }
 
     p {
-      color: var(--muted);
+      color: rgba(255, 243, 194, 0.65);
       font-size: 1.05rem;
       max-width: 380px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .back {
       margin-top: 2rem;
-      color: var(--primary);
+      color: var(--primary-light);
       text-decoration: none;
       font-weight: 500;
       font-size: 0.95rem;
@@ -75,21 +113,23 @@
 </head>
 
 <body>
-  <div class="logo">
-    <img src="waka-logo.svg" alt="Waka" />
+  <div class="content">
+    <div class="logo">
+      <img src="waka-logo.svg" alt="Waka" />
+    </div>
+
+    <div class="icon">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#4ADE80" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="20 6 9 17 4 12" />
+      </svg>
+    </div>
+
+    <h1>You're on the list!</h1>
+    <p>Your email has been confirmed. We'll be in touch when Waka is ready.</p>
+
+    <a class="back" href="/">← Back to home</a>
   </div>
-
-  <div class="icon">
-    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#4caf50" stroke-width="2.5"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  </div>
-
-  <h1>You're on the list!</h1>
-  <p>Your email has been confirmed. We'll be in touch when Waka is ready.</p>
-
-  <a class="back" href="/">← Back to home</a>
 </body>
 
 </html>

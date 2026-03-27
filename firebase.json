@@ -14,9 +14,13 @@
         "region": "australia-southeast1"
       },
       {
-        "source": "/verify",
+        "source": "/waitlist/verify",
         "function": "api",
         "region": "australia-southeast1"
+      },
+      {
+        "source": "/verified",
+        "destination": "/verified.html"
       }
     ]
   }
